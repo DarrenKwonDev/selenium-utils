@@ -1,3 +1,5 @@
+import os
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -14,6 +16,9 @@ class GoogleKeywardScreenShooter():
         self.directory = directory
 
     def start(self):
+        if not os.path.exists(self.directory):
+            os.makedirs(self.directory)
+
         # google로 접속
         self.browser.get("https://google.com")
 
